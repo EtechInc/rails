@@ -405,6 +405,12 @@ module ActionDispatch
         @formatter = Journey::Formatter.new @set
       end
 
+      def eager_load!
+        router.eager_load!
+        routes.each(&:eager_load!)
+        nil
+      end
+
       def draw(&block)
         clear! unless @disable_clear_and_finalize
         eval_block(block)
