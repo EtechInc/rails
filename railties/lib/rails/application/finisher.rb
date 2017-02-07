@@ -66,7 +66,7 @@ module Rails
       # the hook are taken into account.
       initializer :set_routes_reloader_hook do
         reloader = routes_reloader
-        reloader.eager_load = app.config.eager_load
+        reloader.eager_load = config.eager_load
         reloader.execute_if_updated
         self.reloaders << reloader
         ActionDispatch::Reloader.to_prepare do
