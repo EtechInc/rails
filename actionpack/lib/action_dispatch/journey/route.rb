@@ -24,6 +24,7 @@ module ActionDispatch
         @decorated_ast     = nil
         @precedence        = 0
         @path_formatter    = @path.build_formatter
+        eager_load!
       end
 
       def eager_load!
